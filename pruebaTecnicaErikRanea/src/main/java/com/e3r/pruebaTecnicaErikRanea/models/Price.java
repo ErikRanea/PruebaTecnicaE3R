@@ -43,7 +43,7 @@ public class Price {
     private double price;
 
     @NotNull(message = "La iso de la moneda es requerida")
-    @Pattern(regexp = "EUR|USD", message = "Las ISO deben ser EUR o USD")
+    @Pattern(regexp = "EUR", message = "Las ISO debe EUR")
     private String curr;
 
 

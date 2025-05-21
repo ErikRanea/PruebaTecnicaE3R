@@ -29,8 +29,11 @@ public class PriceRespuestaDto {
 
     public PriceRespuestaDto(){}
 
-    public PriceRespuestaDto(Long brandId, Long productId, int priceList, LocalDateTime startDate,
-            LocalDateTime endDate, double precioFinal) {
+    public PriceRespuestaDto(
+        Long brandId, Long productId, int priceList,
+        LocalDateTime startDate, LocalDateTime endDate, 
+        double precioFinal) {
+
         this.brandId = brandId;
         this.productId = productId;
         this.priceList = priceList;

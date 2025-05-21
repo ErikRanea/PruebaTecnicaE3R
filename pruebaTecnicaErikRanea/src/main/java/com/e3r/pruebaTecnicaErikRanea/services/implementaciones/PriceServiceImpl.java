@@ -1,5 +1,6 @@
 package com.e3r.pruebaTecnicaErikRanea.services.implementaciones;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,16 +22,12 @@ public class PriceServiceImpl implements PriceService {
         return repositorio.findAll();
     }
 
-    @Override
-    public Optional<Price> findByProductId(Long id) {
-        return repositorio.findByProductId(id);    
-    }
 
     @Override
-    public Optional<Price> findByBrandId(Long id) {
-        return repositorio.findByBrandId(id);    
+    public Optional<Price> buscarPrecio(Long brandId, Long productId, LocalDateTime fechaDeAplicacion) {
+        return repositorio.buscarPrecio(
+            brandId, productId, fechaDeAplicacion);
     }
-
 
 
 

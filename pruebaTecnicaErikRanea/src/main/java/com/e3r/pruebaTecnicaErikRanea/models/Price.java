@@ -3,6 +3,8 @@ package com.e3r.pruebaTecnicaErikRanea.models;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
@@ -15,6 +17,10 @@ import jakarta.validation.constraints.Positive;
 public class Price {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull(message = "BrandID es requerido")
     private Long brandId;
 
     @NotNull(message = "StartDate es requerido")
@@ -39,6 +45,27 @@ public class Price {
     @NotNull(message = "La iso de la moneda es requerida")
     @Pattern(regexp = "EUR|USD", message = "Las ISO deben ser EUR o USD")
     private String curr;
+
+
+    
+    
+    public Price(Long brandId, @NotNull(message = "StartDate es requerido") LocalDateTime startDate,
+            @NotNull(message = "EndDate es requerido") LocalDateTime endDate,
+            @NotNull(message = "PriceList es requerido") @Positive(message = "PriceList debe ser positivo") int priceList,
+            @NotNull(message = "ProductId es requerido") Long productId,
+            @Min(value = 0, message = "La prioridad debe ser 0 o superior") int priority,
+            @Positive(message = "El precio debe ser mayor a 0") double price,
+            @NotNull(message = "La iso de la moneda es requerida") @Pattern(regexp = "EUR|USD", message = "Las ISO deben ser EUR o USD") String curr) {
+        this.brandId = brandId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.priceList = priceList;
+        this.productId = productId;
+        this.priority = priority;
+        this.price = price;
+        this.curr = curr;
+    }
+    public Price(){}
 
     public Long getBrandId() {
         return brandId;

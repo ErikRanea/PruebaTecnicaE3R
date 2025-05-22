@@ -2,6 +2,7 @@ package com.e3r.pruebaTecnicaErikRanea.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,8 +51,12 @@ public class PriceController {
     }
     
     @GetMapping()
-    public List<Price> getPrices() {
-        return service.findAll();
+    public ResponseEntity<List<PriceResponseDto>> getPrices() {
+        
+        List<Price> prices = service.findAll();
+        List<PriceResponseDto> priceDtos = prices.stream().map(mapper::toDto).collect(Collectors.toList());
+
+        return ResponseEntity.ok(priceDtos);
     }
     
 

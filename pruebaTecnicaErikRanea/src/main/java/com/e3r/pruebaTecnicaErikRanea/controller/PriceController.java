@@ -34,19 +34,19 @@ public class PriceController {
     private PriceMapper mapper;
 
     @PostMapping()
-    public ResponseEntity<PriceRespuestaDto> consultaPrecio(
+    public ResponseEntity<PriceRespuestaDto> checkPrice(
         @RequestBody @Valid PricePeticionDto peticion) {
         
-       Optional <Price> price = servicio.buscarPrecio(
+       Optional <Price> price = servicio.searchPrice(
             peticion.getBrandId(),
             peticion.getProductId(),
-            peticion.getFechaDeAplicacion());
+            peticion.getApplicationDate());
         
         if(!price.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
-        return ResponseEntity.ok().body(mapper.tDto(price.get()));
+        return ResponseEntity.ok().body(mapper.toDto(price.get()));
     }
     
     @GetMapping()

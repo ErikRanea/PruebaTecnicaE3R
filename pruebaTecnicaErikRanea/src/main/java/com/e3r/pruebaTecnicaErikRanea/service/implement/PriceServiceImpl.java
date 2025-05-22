@@ -24,9 +24,9 @@ public class PriceServiceImpl implements PriceService {
 
 
     @Override
-    public Optional<Price> buscarPrecio(Long brandId, Long productId, LocalDateTime fechaDeAplicacion) {
-        return repositorio.buscarPrecio(
-            brandId, productId, fechaDeAplicacion);
+    public Optional<Price> searchPrice(Long brandId, Long productId, LocalDateTime applicationDate) {
+        return repositorio.searchPrice(
+            brandId, productId, applicationDate);
     }
 
 

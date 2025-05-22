@@ -8,9 +8,9 @@ import com.e3r.pruebaTecnicaErikRanea.model.Price;
 
 public interface PriceService {
     List<Price> findAll();
-    Optional<Price> buscarPrecio(
+    Optional<Price> searchPrice(
         Long brandId,
         Long productId,
-        LocalDateTime fechaDeAplicacion
+        LocalDateTime applicationDate
     );
 }

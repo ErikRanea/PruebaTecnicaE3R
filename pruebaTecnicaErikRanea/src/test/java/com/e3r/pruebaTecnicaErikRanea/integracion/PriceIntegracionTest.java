@@ -31,7 +31,7 @@ public class PriceIntegracionTest {
         PricePeticionDto peticion = new PricePeticionDto();
         peticion.setProductId(35455L);
         peticion.setBrandId(1L);
-        peticion.setFechaDeAplicacion(LocalDateTime.of(2020, 6, 14, 10, 0, 0));
+        peticion.setApplicationDate(LocalDateTime.of(2020, 6, 14, 10, 0, 0));
         
         String json = objectMapper.writeValueAsString(peticion);
 
@@ -39,8 +39,8 @@ public class PriceIntegracionTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(json))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.precio_final").value(35.50))
-        .andExpect(jsonPath("$.price_list").value(1));
+        .andExpect(jsonPath("$.price").value(35.50))
+        .andExpect(jsonPath("$.priceList").value(1));
 
 
     }
@@ -50,7 +50,7 @@ public class PriceIntegracionTest {
          PricePeticionDto peticion = new PricePeticionDto();
         peticion.setProductId(35455L);
         peticion.setBrandId(1L);
-        peticion.setFechaDeAplicacion(LocalDateTime.of(2020, 6, 14, 16, 0, 0));
+        peticion.setApplicationDate(LocalDateTime.of(2020, 6, 14, 16, 0, 0));
         
         String json = objectMapper.writeValueAsString(peticion);
 
@@ -58,8 +58,8 @@ public class PriceIntegracionTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(json))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.precio_final").value(25.45))
-        .andExpect(jsonPath("$.price_list").value(2));
+        .andExpect(jsonPath("$.price").value(25.45))
+        .andExpect(jsonPath("$.priceList").value(2));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class PriceIntegracionTest {
          PricePeticionDto peticion = new PricePeticionDto();
         peticion.setProductId(35455L);
         peticion.setBrandId(1L);
-        peticion.setFechaDeAplicacion(LocalDateTime.of(2020, 6, 14, 21, 0, 0));
+        peticion.setApplicationDate(LocalDateTime.of(2020, 6, 14, 21, 0, 0));
         
         String json = objectMapper.writeValueAsString(peticion);
 
@@ -75,8 +75,8 @@ public class PriceIntegracionTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(json))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.precio_final").value(35.5))
-        .andExpect(jsonPath("$.price_list").value(1));
+        .andExpect(jsonPath("$.price").value(35.5))
+        .andExpect(jsonPath("$.priceList").value(1));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class PriceIntegracionTest {
          PricePeticionDto peticion = new PricePeticionDto();
         peticion.setProductId(35455L);
         peticion.setBrandId(1L);
-        peticion.setFechaDeAplicacion(LocalDateTime.of(2020, 6, 15, 10, 0, 0));
+        peticion.setApplicationDate(LocalDateTime.of(2020, 6, 15, 10, 0, 0));
         
         String json = objectMapper.writeValueAsString(peticion);
 
@@ -92,8 +92,8 @@ public class PriceIntegracionTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(json))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.precio_final").value(30.50))
-        .andExpect(jsonPath("$.price_list").value(3));
+        .andExpect(jsonPath("$.price").value(30.50))
+        .andExpect(jsonPath("$.priceList").value(3));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class PriceIntegracionTest {
          PricePeticionDto peticion = new PricePeticionDto();
         peticion.setProductId(35455L);
         peticion.setBrandId(1L);
-        peticion.setFechaDeAplicacion(LocalDateTime.of(2020, 6, 16, 21, 0, 0));
+        peticion.setApplicationDate(LocalDateTime.of(2020, 6, 16, 21, 0, 0));
         
         String json = objectMapper.writeValueAsString(peticion);
 
@@ -109,7 +109,7 @@ public class PriceIntegracionTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(json))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.precio_final").value(38.95))
-        .andExpect(jsonPath("$.price_list").value(4));
+        .andExpect(jsonPath("$.price").value(38.95))
+        .andExpect(jsonPath("$.priceList").value(4));
     }
 }

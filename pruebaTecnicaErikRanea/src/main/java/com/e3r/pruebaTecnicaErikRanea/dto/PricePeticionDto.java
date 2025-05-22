@@ -19,7 +19,7 @@ public class PricePeticionDto {
 
     @JsonProperty("fecha_aplicacion")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime fechaDeAplicacion;
+    private LocalDateTime applicationDate;
  
 
 }

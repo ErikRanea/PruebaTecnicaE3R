@@ -10,20 +10,20 @@ import lombok.Data;
 @Data
 public class PriceRespuestaDto {
 
-    @JsonProperty("brand_id")
+    @JsonProperty("brandId")
     private Long brandId;
     
-    @JsonProperty("product_id")
+    @JsonProperty("productId")
     private Long productId;
     
-    @JsonProperty("price_list")
+    @JsonProperty("priceList")
     private int priceList;
     
-    @JsonProperty("start_date")
+    @JsonProperty("startDate")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime startDate;
     
-    @JsonProperty("end_date")
+    @JsonProperty("endDate")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime endDate;
 

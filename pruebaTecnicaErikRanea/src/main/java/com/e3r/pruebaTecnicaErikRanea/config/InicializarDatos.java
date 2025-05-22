@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.e3r.pruebaTecnicaErikRanea.models.Price;
-import com.e3r.pruebaTecnicaErikRanea.repositories.PriceRepository;
+import com.e3r.pruebaTecnicaErikRanea.model.Price;
+import com.e3r.pruebaTecnicaErikRanea.repository.PriceRepository;
 
 @Component
 public class InicializarDatos implements CommandLineRunner {

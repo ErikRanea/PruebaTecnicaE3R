@@ -1,4 +1,4 @@
-package com.e3r.pruebaTecnicaErikRanea.repositories;
+package com.e3r.pruebaTecnicaErikRanea.repository;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.e3r.pruebaTecnicaErikRanea.models.Price;
+import com.e3r.pruebaTecnicaErikRanea.model.Price;
 
 
 

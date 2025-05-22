@@ -1,4 +1,4 @@
-package com.e3r.pruebaTecnicaErikRanea.controllers;
+package com.e3r.pruebaTecnicaErikRanea.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.e3r.pruebaTecnicaErikRanea.dtos.PricePeticionDto;
-import com.e3r.pruebaTecnicaErikRanea.dtos.PriceRespuestaDto;
-import com.e3r.pruebaTecnicaErikRanea.models.Price;
-import com.e3r.pruebaTecnicaErikRanea.services.PriceService;
+import com.e3r.pruebaTecnicaErikRanea.dto.PricePeticionDto;
+import com.e3r.pruebaTecnicaErikRanea.dto.PriceRespuestaDto;
+import com.e3r.pruebaTecnicaErikRanea.mapper.PriceMapper;
+import com.e3r.pruebaTecnicaErikRanea.model.Price;
+import com.e3r.pruebaTecnicaErikRanea.service.PriceService;
 
 import jakarta.validation.Valid;
 
@@ -29,6 +30,9 @@ public class PriceController {
     @Autowired
     private PriceService servicio;
 
+    @Autowired
+    private PriceMapper mapper;
+
     @PostMapping()
     public ResponseEntity<PriceRespuestaDto> consultaPrecio(
         @RequestBody @Valid PricePeticionDto peticion) {
@@ -42,17 +46,7 @@ public class PriceController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
-        Price priceValido = price.get();
-
-        PriceRespuestaDto respuesta = new PriceRespuestaDto();
-        respuesta.setBrandId(priceValido.getBrandId());
-        respuesta.setProductId(priceValido.getProductId());
-        respuesta.setPriceList(priceValido.getPriceList());
-        respuesta.setStartDate(priceValido.getStartDate());
-        respuesta.setEndDate(priceValido.getEndDate());
-        respuesta.setPrecioFinal(priceValido.getPrice());
-
-        return ResponseEntity.ok().body(respuesta);
+        return ResponseEntity.ok().body(mapper.tDto(price.get()));
     }
     
     @GetMapping()

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.e3r.pruebaTecnicaErikRanea.dto.PricePeticionDto;
-import com.e3r.pruebaTecnicaErikRanea.dto.PriceRespuestaDto;
+import com.e3r.pruebaTecnicaErikRanea.dto.PriceRequestDto;
+import com.e3r.pruebaTecnicaErikRanea.dto.PriceResponseDto;
 import com.e3r.pruebaTecnicaErikRanea.mapper.PriceMapper;
 import com.e3r.pruebaTecnicaErikRanea.model.Price;
 import com.e3r.pruebaTecnicaErikRanea.service.PriceService;
@@ -28,19 +28,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PriceController {
 
     @Autowired
-    private PriceService servicio;
+    private PriceService service;
 
     @Autowired
     private PriceMapper mapper;
 
     @PostMapping()
-    public ResponseEntity<PriceRespuestaDto> checkPrice(
-        @RequestBody @Valid PricePeticionDto peticion) {
+    public ResponseEntity<PriceResponseDto> checkPrice(
+        @RequestBody @Valid PriceRequestDto request) {
         
-       Optional <Price> price = servicio.searchPrice(
-            peticion.getBrandId(),
-            peticion.getProductId(),
-            peticion.getApplicationDate());
+       Optional <Price> price = service.searchPrice(
+            request.getBrandId(),
+            request.getProductId(),
+            request.getApplicationDate());
         
         if(!price.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -51,7 +51,7 @@ public class PriceController {
     
     @GetMapping()
     public List<Price> getPrices() {
-        return servicio.findAll();
+        return service.findAll();
     }
     
 

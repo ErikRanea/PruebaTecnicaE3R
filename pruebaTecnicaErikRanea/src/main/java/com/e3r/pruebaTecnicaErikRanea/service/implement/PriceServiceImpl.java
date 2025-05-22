@@ -15,17 +15,17 @@ import com.e3r.pruebaTecnicaErikRanea.service.PriceService;
 public class PriceServiceImpl implements PriceService {
 
     @Autowired
-    private PriceRepository repositorio;
+    private PriceRepository repository;
 
     @Override
     public List<Price> findAll() {
-        return repositorio.findAll();
+        return repository.findAll();
     }
 
 
     @Override
     public Optional<Price> searchPrice(Long brandId, Long productId, LocalDateTime applicationDate) {
-        return repositorio.searchPrice(
+        return repository.searchPrice(
             brandId, productId, applicationDate);
     }
 

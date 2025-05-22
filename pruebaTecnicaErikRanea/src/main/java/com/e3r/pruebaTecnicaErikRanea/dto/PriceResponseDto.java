@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class PriceRespuestaDto {
+public class PriceResponseDto {
 
     @JsonProperty("brandId")
     private Long brandId;

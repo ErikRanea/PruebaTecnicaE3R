@@ -1,4 +1,4 @@
-package com.e3r.pruebaTecnicaErikRanea.Dtos;
+package com.e3r.pruebaTecnicaErikRanea.dtos;
 
 import java.time.LocalDateTime;
 

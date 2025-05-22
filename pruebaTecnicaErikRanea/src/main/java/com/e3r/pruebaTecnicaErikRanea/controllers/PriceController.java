@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.e3r.pruebaTecnicaErikRanea.Dtos.PricePeticionDto;
-import com.e3r.pruebaTecnicaErikRanea.Dtos.PriceRespuestaDto;
+import com.e3r.pruebaTecnicaErikRanea.dtos.PricePeticionDto;
+import com.e3r.pruebaTecnicaErikRanea.dtos.PriceRespuestaDto;
 import com.e3r.pruebaTecnicaErikRanea.models.Price;
 import com.e3r.pruebaTecnicaErikRanea.services.PriceService;
 

@@ -1,4 +1,4 @@
-package com.e3r.pruebaTecnicaErikRanea.repositories;
+package com.e3r.pruebaTecnicaErikRanea.repository;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.e3r.pruebaTecnicaErikRanea.models.Price;
+import com.e3r.pruebaTecnicaErikRanea.model.Price;
 
 
 
@@ -16,14 +16,14 @@ public interface PriceRepository extends JpaRepository<Price,Long> {
             SELECT p FROM Price p 
             WHERE p.brandId = :brandId
             AND p.productId = :productId
-            AND :fecha BETWEEN p.startDate and p.endDate
+            AND :applicationDate BETWEEN p.startDate and p.endDate
             ORDER BY p.priority DESC
             LIMIT 1
             """)
-    Optional<Price> buscarPrecio(
+    Optional<Price> searchPrice(
         Long brandId,
         Long productId,
-        LocalDateTime fecha
+        LocalDateTime applicationDate
     );
     
 

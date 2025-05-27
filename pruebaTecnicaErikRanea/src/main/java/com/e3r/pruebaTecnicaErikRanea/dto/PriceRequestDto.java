@@ -15,7 +15,7 @@ public class PriceRequestDto {
 
 
     @JsonProperty("brand_id")
-    @NotNull(message = "Eñ campo brand_id es requerido")
+    @NotNull(message = "El campo brand_id es requerido")
     private Long brandId;
 
     @JsonProperty("product_id")
